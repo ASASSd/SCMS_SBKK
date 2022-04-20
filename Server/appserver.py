@@ -2,15 +2,39 @@
 import codecs
 import json
 import socket
+from sqlite3 import Date
+from time import ctime
 import psycopg2
 import threading
 from psycopg2 import Error
 
 # Global variables go here
 data = ""
+parsed_data = (0,)
 
 # Classes go here
-class Management(object):
+class Server(object):   # Server class
+    id = int()
+    name = str()
+    model = str()
+    desc = str()
+    __invnum = int()
+
+    def get_invnum(self):
+        return self.__invnum
+    def set_invnum(self, invnum):
+        self.__invnum = invnum
+
+class ServerState(object):  # Server telemetry record class
+    server_id = int()
+    server_status = int()
+    smoke = bool()
+    temperature = int()
+    cpu_load = int()
+    date = int()
+    
+
+class Management(object):   # Server management class
     __id = int()
 
     def set_id(self, id):
@@ -27,11 +51,10 @@ class Management(object):
             print("[err] Connection refused")
             return -1
         sock.send("GET".encode())   # Sending GET command
-        while True:
-            data = sock.recv(1024)  # Receiving data
-            data = codecs.decode(data, 'utf-8') # Decoding data from binary
-            print(data)
-            break
+        data = sock.recv(1024)  # Receiving data
+        data = codecs.decode(data, 'utf-8') # Decoding data from binary
+        parsed_data = json.loads(data)
+        print(parsed_data)
         sock.close()
         return 0
 
@@ -76,7 +99,6 @@ class Management(object):
                 break
         sock.close()
         return 0
-    
 
 # Database connect goes here
 try:

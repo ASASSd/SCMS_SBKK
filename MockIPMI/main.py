@@ -10,15 +10,15 @@ smokeCheck = 0
 def gen():
     time.sleep(randint(0,1))
     if(serverStatus == 1):
-        CpuLoad = randint(70, 80).__str__() + " %"
-        RamLoad = randint(40, 50).__str__() + " %"
+        CpuLoad = randint(70, 80)
+        RamLoad = randint(40, 50)
         Temp = randint(50, 60)
-        fanSpeed = randint(1000, 1200).__str__() + " rpm"
+        fanSpeed = randint(1000, 1200)
     else:
-        CpuLoad = str(0) + "%"
-        RamLoad = str(0) + "%"
-        Temp = str(0)
-        fanSpeed = str(0) + "rpm"
+        CpuLoad = 0
+        RamLoad = 0
+        Temp = 0
+        fanSpeed = 0
     s = json.dumps({'CpuLoad': CpuLoad, 'RamLoad': RamLoad, 'Temp': Temp, 'fanSpeed': fanSpeed, 'idServer': idServer, 'serverStatus': serverStatus, 'smokeCheck': smokeCheck}, sort_keys=True, indent=4)
     print(s)
     return s
