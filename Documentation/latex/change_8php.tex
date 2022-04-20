@@ -1,0 +1,86 @@
+\hypertarget{change_8php}{}\doxysection{/home/user/\+Documents/tasks/program\+\_\+cringineering/\+SCMS\+\_\+\+SBKK/\+Web\+Server/change.php File Reference}
+\label{change_8php}\index{/home/user/Documents/tasks/program\_cringineering/SCMS\_SBKK/WebServer/change.php@{/home/user/Documents/tasks/program\_cringineering/SCMS\_SBKK/WebServer/change.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{change_8php_ac62d1c231e5b3d4c5dd314d5482601d8}{\$mysql}} = new mysqli(\textquotesingle{}localhost\textquotesingle{},\textquotesingle{}root\textquotesingle{},\textquotesingle{}Korotkov@10\textquotesingle{},\textquotesingle{}base\textquotesingle{})
+\item 
+if(! \$mysql) \mbox{\hyperlink{change_8php_a5ad54223eed1a56fbe5aec8b06f57496}{\$name\+\_\+new}}
+\item 
+\mbox{\hyperlink{change_8php_a7890a501d0d5eae44e2132c89879be63}{\$password\+\_\+new}}
+\item 
+\mbox{\hyperlink{change_8php_a427bb310fd8fb692f7d57652449ed73b}{\$email\+\_\+new}}
+\item 
+\mbox{\hyperlink{change_8php_afc31993e855f9631572adfedcfe6f34b}{\$login}} =\$\+\_\+\+COOKIE\mbox{[}\char`\"{}user\char`\"{}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{change_8php_a427bb310fd8fb692f7d57652449ed73b}\label{change_8php_a427bb310fd8fb692f7d57652449ed73b}} 
+\index{change.php@{change.php}!\$email\_new@{\$email\_new}}
+\index{\$email\_new@{\$email\_new}!change.php@{change.php}}
+\doxysubsubsection{\texorpdfstring{\$email\_new}{$email\_new}}
+{\footnotesize\ttfamily \$email\+\_\+new}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= filter\_var(trim(\$\_POST[\textcolor{stringliteral}{'Mail\_new'}]),}
+\DoxyCodeLine{    FILTER\_SANITIZE\_STRING)}
+
+\end{DoxyCode}
+
+
+Definition at line 14 of file change.\+php.
+
+\mbox{\Hypertarget{change_8php_afc31993e855f9631572adfedcfe6f34b}\label{change_8php_afc31993e855f9631572adfedcfe6f34b}} 
+\index{change.php@{change.php}!\$login@{\$login}}
+\index{\$login@{\$login}!change.php@{change.php}}
+\doxysubsubsection{\texorpdfstring{\$login}{$login}}
+{\footnotesize\ttfamily \$login =\$\+\_\+\+COOKIE\mbox{[}\char`\"{}user\char`\"{}\mbox{]}}
+
+
+
+Definition at line 16 of file change.\+php.
+
+\mbox{\Hypertarget{change_8php_ac62d1c231e5b3d4c5dd314d5482601d8}\label{change_8php_ac62d1c231e5b3d4c5dd314d5482601d8}} 
+\index{change.php@{change.php}!\$mysql@{\$mysql}}
+\index{\$mysql@{\$mysql}!change.php@{change.php}}
+\doxysubsubsection{\texorpdfstring{\$mysql}{$mysql}}
+{\footnotesize\ttfamily \$mysql = new mysqli(\textquotesingle{}localhost\textquotesingle{},\textquotesingle{}root\textquotesingle{},\textquotesingle{}Korotkov@10\textquotesingle{},\textquotesingle{}base\textquotesingle{})}
+
+
+
+Definition at line 2 of file change.\+php.
+
+\mbox{\Hypertarget{change_8php_a5ad54223eed1a56fbe5aec8b06f57496}\label{change_8php_a5ad54223eed1a56fbe5aec8b06f57496}} 
+\index{change.php@{change.php}!\$name\_new@{\$name\_new}}
+\index{\$name\_new@{\$name\_new}!change.php@{change.php}}
+\doxysubsubsection{\texorpdfstring{\$name\_new}{$name\_new}}
+{\footnotesize\ttfamily if (! \$mysql) \$name\+\_\+new}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= filter\_var(trim(\$\_POST[\textcolor{stringliteral}{'name\_new'}]),}
+\DoxyCodeLine{    FILTER\_SANITIZE\_STRING)}
+
+\end{DoxyCode}
+
+
+Definition at line 8 of file change.\+php.
+
+\mbox{\Hypertarget{change_8php_a7890a501d0d5eae44e2132c89879be63}\label{change_8php_a7890a501d0d5eae44e2132c89879be63}} 
+\index{change.php@{change.php}!\$password\_new@{\$password\_new}}
+\index{\$password\_new@{\$password\_new}!change.php@{change.php}}
+\doxysubsubsection{\texorpdfstring{\$password\_new}{$password\_new}}
+{\footnotesize\ttfamily \$password\+\_\+new}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= filter\_var(trim(\$\_POST[\textcolor{stringliteral}{'password\_new'}]),}
+\DoxyCodeLine{    FILTER\_SANITIZE\_STRING)}
+
+\end{DoxyCode}
+
+
+Definition at line 11 of file change.\+php.
+

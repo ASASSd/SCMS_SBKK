@@ -1,0 +1,109 @@
+@import url(https://fonts.googleapis.com/css?family=Lora);
+body {
+	margin:0;
+	background-color: #C7FCEC;
+}}
+h2 {
+  font-family: monospace;
+  color: #606060;
+}
+nav {
+  width: 700px;
+  margin: 0 auto 30px;
+}
+ul {
+  list-style: none; 
+  margin: 0;
+  padding: 0;
+}
+.topmenu > li {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+}
+.topmenu > li:last-child {
+  margin-right: 0;
+}
+a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  outline: none;
+  font-family: 'Lora', serif;
+  transition: .5s linear;
+}
+.fa {
+  font-family: "FontAwesome";
+  color: inherit;
+  padding-left: 10px;
+}
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+.bar ul {
+  background: #E4EFD1;
+}
+.bar ul a {
+  color: #74924C;
+}
+.bar .submenu {
+  visibility: hidden;
+  opacity: 0;
+  background: #BAD78B;
+}
+.bar ul li:hover .submenu {
+  visibility: visible;
+  opacity: 1;
+}
+.submenu li a {
+  border-bottom: 1px solid rgba(255,255,255,.3);
+  color: white;
+}
+.HeadText{text-align: center;}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+
+}
+img.avatar {
+  width: 20%;
+  border-radius: 60%;
+}
+.container {
+  padding: 10% 40% 15% 40%;
+  text-align: center;
+}
+.container_setting {
+  padding: 10% 10% 15% 10%;
+  text-align: center;
+}
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,80 @@
+\hypertarget{check_8php}{}\doxysection{/home/user/\+Documents/tasks/program\+\_\+cringineering/\+SCMS\+\_\+\+SBKK/\+Web\+Server/check.php File Reference}
+\label{check_8php}\index{/home/user/Documents/tasks/program\_cringineering/SCMS\_SBKK/WebServer/check.php@{/home/user/Documents/tasks/program\_cringineering/SCMS\_SBKK/WebServer/check.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{check_8php_afc31993e855f9631572adfedcfe6f34b}{\$login}}
+\item 
+\mbox{\hyperlink{check_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}{\$password}}
+\item 
+\mbox{\hyperlink{check_8php_ac62d1c231e5b3d4c5dd314d5482601d8}{\$mysql}} = new mysqli(\textquotesingle{}localhost\textquotesingle{},\textquotesingle{}root\textquotesingle{},\textquotesingle{}Korotkov@10\textquotesingle{},\textquotesingle{}base\textquotesingle{})
+\item 
+if(! \$mysql) \mbox{\hyperlink{check_8php_a5b3e0e5a48849eacd2856040b5a41c16}{\$result}} = \$mysql-\/$>$query(\char`\"{}SELECT $\ast$ FROM \`{}operator\`{} WHERE \`{}login\`{} = \textquotesingle{}\$login\textquotesingle{} AND \`{}password\`{}=\textquotesingle{}\$password\textquotesingle{}\char`\"{})
+\item 
+\mbox{\hyperlink{check_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\$user}} = \$result-\/$>$fetch\+\_\+assoc()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{check_8php_afc31993e855f9631572adfedcfe6f34b}\label{check_8php_afc31993e855f9631572adfedcfe6f34b}} 
+\index{check.php@{check.php}!\$login@{\$login}}
+\index{\$login@{\$login}!check.php@{check.php}}
+\doxysubsubsection{\texorpdfstring{\$login}{$login}}
+{\footnotesize\ttfamily \$login}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= filter\_var(trim(\$\_POST[\textcolor{stringliteral}{'login'}]),}
+\DoxyCodeLine{    FILTER\_SANITIZE\_STRING)}
+
+\end{DoxyCode}
+
+
+Definition at line 3 of file check.\+php.
+
+\mbox{\Hypertarget{check_8php_ac62d1c231e5b3d4c5dd314d5482601d8}\label{check_8php_ac62d1c231e5b3d4c5dd314d5482601d8}} 
+\index{check.php@{check.php}!\$mysql@{\$mysql}}
+\index{\$mysql@{\$mysql}!check.php@{check.php}}
+\doxysubsubsection{\texorpdfstring{\$mysql}{$mysql}}
+{\footnotesize\ttfamily \$mysql = new mysqli(\textquotesingle{}localhost\textquotesingle{},\textquotesingle{}root\textquotesingle{},\textquotesingle{}Korotkov@10\textquotesingle{},\textquotesingle{}base\textquotesingle{})}
+
+
+
+Definition at line 12 of file check.\+php.
+
+\mbox{\Hypertarget{check_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}\label{check_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}} 
+\index{check.php@{check.php}!\$password@{\$password}}
+\index{\$password@{\$password}!check.php@{check.php}}
+\doxysubsubsection{\texorpdfstring{\$password}{$password}}
+{\footnotesize\ttfamily \$password}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= filter\_var(trim(\$\_POST[\textcolor{stringliteral}{'password'}]),}
+\DoxyCodeLine{    FILTER\_SANITIZE\_STRING)}
+
+\end{DoxyCode}
+
+
+Definition at line 6 of file check.\+php.
+
+\mbox{\Hypertarget{check_8php_a5b3e0e5a48849eacd2856040b5a41c16}\label{check_8php_a5b3e0e5a48849eacd2856040b5a41c16}} 
+\index{check.php@{check.php}!\$result@{\$result}}
+\index{\$result@{\$result}!check.php@{check.php}}
+\doxysubsubsection{\texorpdfstring{\$result}{$result}}
+{\footnotesize\ttfamily if (! \$mysql) \$result = \$mysql-\/$>$query(\char`\"{}SELECT $\ast$ FROM \`{}operator\`{} WHERE \`{}login\`{} = \textquotesingle{}\$login\textquotesingle{} AND \`{}password\`{}=\textquotesingle{}\$password\textquotesingle{}\char`\"{})}
+
+
+
+Definition at line 20 of file check.\+php.
+
+\mbox{\Hypertarget{check_8php_a598ca4e71b15a1313ec95f0df1027ca5}\label{check_8php_a598ca4e71b15a1313ec95f0df1027ca5}} 
+\index{check.php@{check.php}!\$user@{\$user}}
+\index{\$user@{\$user}!check.php@{check.php}}
+\doxysubsubsection{\texorpdfstring{\$user}{$user}}
+{\footnotesize\ttfamily \$user = \$result-\/$>$fetch\+\_\+assoc()}
+
+
+
+Definition at line 22 of file check.\+php.
+

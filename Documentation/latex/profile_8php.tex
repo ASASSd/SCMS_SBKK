@@ -1,0 +1,56 @@
+\hypertarget{profile_8php}{}\doxysection{/home/user/\+Documents/tasks/program\+\_\+cringineering/\+SCMS\+\_\+\+SBKK/\+Web\+Server/profile.php File Reference}
+\label{profile_8php}\index{/home/user/Documents/tasks/program\_cringineering/SCMS\_SBKK/WebServer/profile.php@{/home/user/Documents/tasks/program\_cringineering/SCMS\_SBKK/WebServer/profile.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{profile_8php_ac62d1c231e5b3d4c5dd314d5482601d8}{\$mysql}} = new mysqli(\textquotesingle{}localhost\textquotesingle{},\textquotesingle{}root\textquotesingle{},\textquotesingle{}Korotkov@10\textquotesingle{},\textquotesingle{}base\textquotesingle{})
+\item 
+if(! \$mysql) \mbox{\hyperlink{profile_8php_a71d7c1569d4f0dfbd4c9f8eca850e2de}{\$login}} =\$\+\_\+\+COOKIE\mbox{[}\textquotesingle{}user\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{profile_8php_a112ef069ddc0454086e3d1e6d8d55d07}{\$result}} = \$mysql-\/$>$query(\char`\"{}SELECT $\ast$ FROM \`{}operator\`{} WHERE \`{}login\`{} = \textquotesingle{}\$login\textquotesingle{}\char`\"{})
+\item 
+\mbox{\hyperlink{profile_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\$user}} = \$result-\/$>$fetch\+\_\+assoc()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{profile_8php_a71d7c1569d4f0dfbd4c9f8eca850e2de}\label{profile_8php_a71d7c1569d4f0dfbd4c9f8eca850e2de}} 
+\index{profile.php@{profile.php}!\$login@{\$login}}
+\index{\$login@{\$login}!profile.php@{profile.php}}
+\doxysubsubsection{\texorpdfstring{\$login}{$login}}
+{\footnotesize\ttfamily if (! \$mysql) \$login =\$\+\_\+\+COOKIE\mbox{[}\textquotesingle{}user\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line 46 of file profile.\+php.
+
+\mbox{\Hypertarget{profile_8php_ac62d1c231e5b3d4c5dd314d5482601d8}\label{profile_8php_ac62d1c231e5b3d4c5dd314d5482601d8}} 
+\index{profile.php@{profile.php}!\$mysql@{\$mysql}}
+\index{\$mysql@{\$mysql}!profile.php@{profile.php}}
+\doxysubsubsection{\texorpdfstring{\$mysql}{$mysql}}
+{\footnotesize\ttfamily \$mysql = new mysqli(\textquotesingle{}localhost\textquotesingle{},\textquotesingle{}root\textquotesingle{},\textquotesingle{}Korotkov@10\textquotesingle{},\textquotesingle{}base\textquotesingle{})}
+
+
+
+Definition at line 40 of file profile.\+php.
+
+\mbox{\Hypertarget{profile_8php_a112ef069ddc0454086e3d1e6d8d55d07}\label{profile_8php_a112ef069ddc0454086e3d1e6d8d55d07}} 
+\index{profile.php@{profile.php}!\$result@{\$result}}
+\index{\$result@{\$result}!profile.php@{profile.php}}
+\doxysubsubsection{\texorpdfstring{\$result}{$result}}
+{\footnotesize\ttfamily \$result = \$mysql-\/$>$query(\char`\"{}SELECT $\ast$ FROM \`{}operator\`{} WHERE \`{}login\`{} = \textquotesingle{}\$login\textquotesingle{}\char`\"{})}
+
+
+
+Definition at line 48 of file profile.\+php.
+
+\mbox{\Hypertarget{profile_8php_a598ca4e71b15a1313ec95f0df1027ca5}\label{profile_8php_a598ca4e71b15a1313ec95f0df1027ca5}} 
+\index{profile.php@{profile.php}!\$user@{\$user}}
+\index{\$user@{\$user}!profile.php@{profile.php}}
+\doxysubsubsection{\texorpdfstring{\$user}{$user}}
+{\footnotesize\ttfamily \$user = \$result-\/$>$fetch\+\_\+assoc()}
+
+
+
+Definition at line 49 of file profile.\+php.
+
