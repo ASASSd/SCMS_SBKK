@@ -16,6 +16,7 @@ ul {
   margin: 0;
   padding: 0;
 }
+
 .topmenu > li {
   display: inline-block;
   margin-right: 20px;
@@ -69,6 +70,7 @@ a {
 }
 .HeadText{text-align: center;}
 
+
 .imgcontainer {
   text-align: center;
   margin: 24px 0 12px 0;
@@ -98,12 +100,14 @@ button {
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin:0;
   border: none;
   cursor: pointer;
   width: 100%;
 }
-
+button.b1{
+  margin: 0;
+}
 button:hover {
   opacity: 0.8;
 }
