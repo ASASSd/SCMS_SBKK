@@ -56,7 +56,7 @@ class Management(object):   # Server management class
         parsed_data = json.loads(data)
         print(parsed_data)
         sock.close()
-        return 0
+        return parsed_data
 
     # Power on routine
     def poweron(self):

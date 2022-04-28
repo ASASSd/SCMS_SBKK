@@ -31,6 +31,6 @@ create table server_state (
 	smoke boolean,
 	temperature int,
 	cpu_load int,
-	date date
+	date float
 );
 

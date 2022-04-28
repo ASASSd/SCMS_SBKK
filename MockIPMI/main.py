@@ -3,9 +3,9 @@ import time
 import json
 import socket
 import codecs
-idServer = 1
+idServer = 2
 serverStatus = randint(0,1)
-smokeCheck = 0
+smokeCheck = False
 
 def gen():
     time.sleep(randint(0,1))
