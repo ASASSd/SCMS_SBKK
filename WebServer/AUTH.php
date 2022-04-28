@@ -51,6 +51,7 @@
 
 
         }
+        .HeadText{text-align: center;}
 
         span.psw {
             float: right;
