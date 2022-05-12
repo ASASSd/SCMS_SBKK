@@ -8,6 +8,13 @@
 </HEAD>
 <body>
 
+<?php
+if($_COOKIE['user'] == ''):
+  header('Location: ERROR_PAGE.php')
+?>
+
+<?php else: ?>
+
 <nav class="bar">
   <ul class="topmenu">
     <li><a href="main.php">Сервер</a></li>
@@ -27,6 +34,7 @@
     </li>
   </ul>
 </nav>
+<?php endif; ?>
 
 
 

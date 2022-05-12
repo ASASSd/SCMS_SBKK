@@ -7,7 +7,12 @@
 
 </HEAD>
 <body>
+<?php
+if($_COOKIE['user'] == ''):
+  header('Location: ERROR_PAGE.php')
+?>
 
+<?php else: ?>
 <nav class="bar">
   <ul class="topmenu">
     <li><a href="main.php">Сервер</a></li>
@@ -36,19 +41,20 @@
   <p>Логин пользователя :
 
   <?php
-  //поля для подключения к бд
-    $mysql = new mysqli('localhost','root','Korotkov@10','base');
-
-  //проверка на подключение
-    if (!$mysql) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+    $host='localhost';
+    $database = 'sbk';
+    $user = 'postgres';
+    $password = '12345'; 
+    # Создаем соединение с базой PostgreSQL с указанными выше параметрами
+    $cn = pg_connect("host=$host port=5432 dbname=$database user=$user password=$password")
+        or die("Failed to create connection to database: ". pg_last_error(). "<br/>");
+    
     $login=$_COOKIE['user'];
   //выборка данных
-    $result = $mysql->query("SELECT * FROM `operator` WHERE `login` = '$login'");
-      $user = $result->fetch_assoc();
+    $result = pg_query($cn,"SELECT * FROM operator WHERE login = '$login'");
+    $user = pg_fetch_assoc($result);
 
-      print_r($user["login"]);
+    print_r($user["login"]);
 
   ?>
   </p>Имя пользователя : 
@@ -70,7 +76,7 @@
   ?>  
   </p>
 </div>
-
+<?php endif; ?>
 </body>
 <script language="javascript">
 	$(".five li ul").hide();

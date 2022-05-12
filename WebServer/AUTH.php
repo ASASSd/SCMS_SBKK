@@ -41,16 +41,20 @@
             border-radius: 60%;
         }
         .container {
-            padding: 10% 35% 35% 35%;
+            padding: 5% 35% 0% 35%;
         }
 
         .auth_success{
-            padding: 10% 40% 10% 40%;
+            padding: 5% 40% 5% 40%;
             text-align: center;
             font-size: 20px;
 
 
         }
+        .container1 {
+            padding: 0% 25% 0% 25%;
+            text-align: center;
+        }        
         .HeadText{text-align: center;}
 
         span.psw {
@@ -91,9 +95,11 @@
             </div>
         <?php else: ?>
             <p class="auth_success">Вы успешно авторизовались <?=$_COOKIE['user']?></p>
-            <form action="main.php">
+            <div class="container1">
+                <form action="main.php">
                 <button>Перейти на основной сайт</button>
             </form>
+            </div>
         <?php endif; ?>
     </BODY>
 </HTML>

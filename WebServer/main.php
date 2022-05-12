@@ -27,7 +27,13 @@
     </li>
   </ul>
 </nav>
+<?php
+if($_COOKIE['user'] == ''):
+  header('Location: ERROR_PAGE.php')
+?>
 
+<?php else: ?>
+<?php endif; ?>
 
 
 </body>

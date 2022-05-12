@@ -32,7 +32,12 @@
     padding: 0;}
 </style>
 <body>
+<?php
+if($_COOKIE['user'] == ''):
+  header('Location: ERROR_PAGE.php')
+?>
 
+<?php else: ?>
 <nav class="bar">
   <ul class="topmenu">
     <li><a href="main.php">Сервер</a></li>
@@ -72,6 +77,7 @@
   <button type="submit">FAQ</button>
 </form>
 </div>
+<?php endif; ?>
 </body>
 <script language="javascript">
 	$(".five li ul").hide();

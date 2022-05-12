@@ -7,10 +7,15 @@
 
 </HEAD>
 <body>
+<?php
+if($_COOKIE['user'] == ''):
+  header('Location: ERROR_PAGE.php')
+?>
 
+<?php else: ?>
 <nav class="bar">
   <ul class="topmenu">
-    <li><a href="main.html">Сервер</a></li>
+    <li><a href="main.php">Сервер</a></li>
     <li><a href="#">Руководство пользователя<i class="fa fa-angle-down"></i></a>
       <ul class="submenu">
         <li><a href="user.php">Пользователь</a></li>
@@ -46,6 +51,7 @@
     <button type="submit">Подтвердить изменения</button>
   </form>
 </div>
+<?php endif; ?>
 
 </body>
 <script language="javascript">
