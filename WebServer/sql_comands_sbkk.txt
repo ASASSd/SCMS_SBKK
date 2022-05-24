@@ -1,0 +1,59 @@
+create database sbkk;
+create role administrator with login password 'cisco';
+\c sbkk administrator
+cisco
+
+create sequence seq_operatorid;
+create sequence seq_serverid;
+create sequence seq_serverstatusid;
+create sequence seq_dataid;
+
+create table operator (
+	id_operator int primary key default nextval('seq_operatorid'),
+	fullname text not null,
+	role text not null,
+	email text,
+	login text not null,
+	password text not null,
+	reg_date date not null default CURRENT_TIMESTAMP
+);
+
+create table server (
+	id_server int primary key default nextval('seq_serverid'),
+	id_operator int references operator (id_operator) on delete set null,
+	invent_num int2,
+	name text,
+	description text,
+	model text
+);
+
+create table server_state (
+	id_serverstate int primary key default nextval('seq_serverstatusid'),
+	id_server int references server (id_server) on delete cascade,
+	status int,
+	smoke boolean,
+	temperature int,
+	cpu_load int,
+	date date not null default CURRENT_TIMESTAMP
+);
+
+insert into server_state(id_server, status, smoke, temperature,cpu_load) values ('1','1','true','35','45');
+
+insert into operator (fullname, role, email, login, password, reg_date)
+values ('Semen Korotkov', 'admin', 'abc@gmail.com', 'semkor', '12345', '2020-01-01');
+insert into operator (fullname, role, email, login, password, reg_date)
+values ('Denis Burdaev', 'user', 'denchik@mail.ru', 'den12', 'abcde', '2020-03-02');
+insert into operator (fullname, role, email, login, password, reg_date)
+values ('Vladimir Smirkin', 'user', 'kok@vk.com', 'realhumanbean', 'abc123', '2020-02-25');
+
+insert into server (id_operator, invent_num, name, description, model)
+values (2, 143, 'SServ1', 'South Server 1', 'Dell PowerEdge R240');
+insert into server (id_operator, invent_num, name, description, model)
+values (2, 144, 'SServ2', 'South Server 2', 'Dell PowerEdge R240');
+insert into server (id_operator, invent_num, name, description, model)
+values (2, 145, 'SServ3', 'South Server 3', 'Dell PowerEdge R240');
+
+insert into server (id_operator, invent_num, name, description, model)
+values (3, 51, 'NServ1', 'North Server 1', 'Dell PowerEdge R243');
+insert into server (id_operator, invent_num, name, description, model)
+values (3, 52, 'NServ2', 'North Server 2', 'Dell PowerEdge R243');

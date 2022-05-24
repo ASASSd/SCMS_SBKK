@@ -54,7 +54,7 @@ if($_COOKIE['user'] == ''):
     $result = pg_query($cn,"SELECT * FROM operator WHERE login = '$login'");
     $user = pg_fetch_assoc($result);
 
-    print_r($user["login"]);
+   print_r($user["login"]);
 
   ?>
   </p>Имя пользователя : 

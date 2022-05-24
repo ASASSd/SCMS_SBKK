@@ -7,12 +7,7 @@
 
 </HEAD>
 <body>
-<?php
-if($_COOKIE['user'] == ''):
-  header('Location: ERROR_PAGE.php')
-?>
 
-<?php else: ?>
 <nav class="bar">
   <ul class="topmenu">
     <li><a href="main.php">Сервер</a></li>
@@ -32,7 +27,6 @@ if($_COOKIE['user'] == ''):
     </li>
   </ul>
 </nav>
-
 <h2 class="HeadText">Личный кабинет пользователя <?=$_COOKIE['user']?></h2>
 <div class="imgcontainer">
     <img src="PhotoAuth/avatar.webp " alt = "Avatar" class="avatar">
@@ -50,7 +44,26 @@ if($_COOKIE['user'] == ''):
     </label> 
     <button type="submit">Подтвердить изменения</button>
   </form>
+  <?php
+    $host='localhost';
+    $database = 'sbk';
+    $user = 'postgres';
+    $password = '12345'; 
+    # Создаем соединение с базой PostgreSQL с указанными выше параметрами
+    $cn = pg_connect("host=$host port=5432 dbname=$database user=$user password=$password")
+        or die("Failed to create connection to database: ". pg_last_error(). "<br/>");
+    
+    $login=$_COOKIE['user'];
+  //выборка данных
+    $result = pg_query($cn,"SELECT * FROM operator WHERE login = '$login'");
+    $user = pg_fetch_assoc($result);
+    $role = $user["role"];
+    if ($role=="admin"): ?>
+    <form action="New_User.php">
+      <button type="submit">Создать нового пользователя</button>
+    </form>
 </div>
+</form>
 <?php endif; ?>
 
 </body>

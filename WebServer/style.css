@@ -84,9 +84,14 @@ img.avatar {
   padding: 10% 40% 15% 40%;
   text-align: center;
 }
+
 .container_setting {
   padding: 10% 10% 15% 10%;
   text-align: center;
+}
+.select_test{
+  size: 10px;
+    padding: 10% 30% 15% 10%;
 }
 input[type=text], input[type=password] {
   width: 100%;
