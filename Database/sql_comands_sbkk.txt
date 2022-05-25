@@ -1,7 +1,4 @@
-create database sbkk;
-create role administrator with login password 'cisco';
-\c sbkk administrator
-cisco
+create database sbk;
 
 create sequence seq_operatorid;
 create sequence seq_serverid;
@@ -45,7 +42,7 @@ create table server_commands(
 	date_command date not null default CURRENT_TIMESTAMP	 
 );
 
-insert into server_state(id_server, status, smoke, temperature,cpu_load) values ('1','1','true','35','45');
+
 
 insert into operator (fullname, role, email, login, password, reg_date)
 values ('Semen Korotkov', 'admin', 'abc@gmail.com', 'semkor', '12345', '2020-01-01');
@@ -66,3 +63,4 @@ values (3, 51, 'NServ1', 'North Server 1', 'Dell PowerEdge R243');
 insert into server (id_operator, invent_num, name, description, model)
 values (3, 52, 'NServ2', 'North Server 2', 'Dell PowerEdge R243');
 
+insert into server_state(id_server, status, smoke, temperature,cpu_load) values ('1','1','true','35','45');
