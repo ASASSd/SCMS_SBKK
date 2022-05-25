@@ -22,7 +22,10 @@
       button{
         margin-top: 10px;
       }
-
+  .container {
+    padding: 0 40% 0 40%;
+    text-align: center;
+  }
     </style>
 
 </HEAD>

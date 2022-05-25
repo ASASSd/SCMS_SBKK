@@ -3,7 +3,13 @@
 <HEAD>
   <meta http-equiv="Content-Type" content="text/html: charset=utf-8">
   <link rel ="stylesheet" href="style.css">
+  <style type = "text/css">
 
+  .container {
+    padding: 0 40% 0 40%;
+    text-align: center;
+  }
+  </style>
 
 </HEAD>
 <body>
