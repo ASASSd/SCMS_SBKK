@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+	<meta http-equiv="Content-Type" content="text/html: charset=utf-8">
+	<link rel ="stylesheet" href="style.css">
+<style>
+.user {
+  margin: 30px 30% 30px 30%;
+  text-align: center;
+  background: #E4EFD1;
+
+}
+img.avatar {
+  width: 60%;
+  border-radius: 60%;
+  text-align: center;
+  padding-left: ;
+  }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 12px 0 12px 0;
+            width: 30%;
+            border-radius: 60%;
+
+        }
+</style>
+</HEAD>
+<body>
+
+<nav class="bar">
+  <ul class="topmenu">
+    <li><a href="main.php">Сервер</a></li>
+    <li><a href="#">Руководство пользователя<i class="fa fa-angle-down"></i></a>
+      <ul class="submenu">
+        <li><a href="user.php">Пользователь</a></li>
+        <li><a href="admin_doc.html">Администратор</a></li>
+      </ul>
+    </li>
+    <li><a href="contact.html">Контакты</a></li>
+    <li><a href="#">Пользователь</a>
+        <ul class="submenu">
+        	<li><a href="profile.php">Страница пользователя</a></li>
+        	<li><a href="setting.php">Настройки</a></li>
+        	<li><a href="exit.php">Выход</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<h2 class="HeadText">Контакты разработчиков</h2>
+<h2 class="HeadText">Данный проект реализовали: </h2>
+
+<div class="user">
+  <img src="PhotoAuth/avatar.webp " class="imgcontainer">
+  <p>ФИО: Илья Смиркин</p>
+  <p>Должность: Руководитель проекта, разработчик</p>
+  <p>Контактный номер: </p>
+  <p>Почта: </p>
+</div>
+
+<div class="user">
+  <img src="PhotoAuth/avatar.webp " class="imgcontainer">
+  <p>ФИО: Коротков Денис Юрьевич</p>
+  <p>Должность: Разработчик, дизайнер</p>
+  <p>Контактный номер: +7(958)562-02-80</p>
+  <p>Почта: korotkov987@yandex.ru </p>
+</div>
+
+<div class="user">
+  <img src="PhotoAuth/avatar.webp " class="imgcontainer">
+  <p>ФИО: Владимир Бурдаев</p>
+  <p>Должность: Технический писатель, аналитик</p>
+  <p>Контактный номер: </p>
+  <p>Почта: </p>
+</div>
+
+<div class="user">
+  <img src="PhotoAuth/avatar.webp " class="imgcontainer">
+  <p>ФИО: Семен Кузьмин</p>
+  <p>Должность: Тестировщик</p>
+  <p>Контактный номер: </p>
+  <p>Почта: </p>
+</div>
+
+</body>
+<script language="javascript">
+	$(".five li ul").hide();
+	$(".five li:has('.submenu')").hover(
+  	function(){
+  		$(".five li ul").stop().fadeToggle(300);
+  	}
+);
+
+</script>
+</HTML>

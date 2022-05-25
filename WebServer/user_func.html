@@ -3,8 +3,22 @@
 <HEAD>
 	<meta http-equiv="Content-Type" content="text/html: charset=utf-8">
 	<link rel ="stylesheet" href="style.css">
-
-
+<style>
+p.speech {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  margin-right: 25%;
+  margin-left: 25%;
+  background-color: #FAE996;
+  border-radius: 30px;
+}
+img{
+  border: 3px solid #FAE996;  
+  width: 70%;
+  border-radius: 30px;
+}
+</style>
 </HEAD>
 <body>
 
@@ -14,10 +28,10 @@
     <li><a href="#">Руководство пользователя<i class="fa fa-angle-down"></i></a>
       <ul class="submenu">
         <li><a href="user.php">Пользователь</a></li>
-        <li><a href="">Администратор</a></li>
+        <li><a href="admin_doc.html">Администратор</a></li>
       </ul>
     </li>
-    <li><a href="#">Контакты</a></li>
+    <li><a href="contact.html">Контакты</a></li>
     <li><a href="#">Пользователь</a>
         <ul class="submenu">
         	<li><a href="profile.php">Страница пользователя</a></li>
@@ -27,7 +41,18 @@
     </li>
   </ul>
 </nav>
-
+<p class="speech">На вкладке “Сервер” отображаются доступные сервера. Слева отображается информация о сервере, а именно: модель, имя, инвентарный номер, описание.</p>
+<div class="imgcontainer">
+<img src="PhotoAuth/server_hz1.jpg">
+</div>
+<p class="speech">Справа выводится телеметрия сервера, а именно: статус, наличие дыма, температура, нагрузка CPU и дата последней телеметрии. </p>
+<div class="imgcontainer">
+<img src="PhotoAuth/server_hz2.jpg">
+</div>
+<p class="speech">Для включения, выключения или перезагрузки сервера воспользуйтесь соответствующими кнопками, которые расположены под блоком с информацией о сервере. </p>
+<div class="imgcontainer">
+<img src="PhotoAuth/master_setting.jpg">
+</div>
 
 
 </body>

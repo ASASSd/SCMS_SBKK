@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+	<meta http-equiv="Content-Type" content="text/html: charset=utf-8">
+	<link rel ="stylesheet" href="style.css">
+<style>
+p.speech {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  margin-right: 25%;
+  margin-left: 25%;
+  background-color: #FAE996;
+  border-radius: 30px;
+}
+img{
+  border: 3px solid #FAE996;  
+  width: 70%;
+  border-radius: 30px;
+}
+</style>
+</HEAD>
+<body>
+
+<nav class="bar">
+  <ul class="topmenu">
+    <li><a href="main.php">Сервер</a></li>
+    <li><a href="#">Руководство пользователя<i class="fa fa-angle-down"></i></a>
+      <ul class="submenu">
+        <li><a href="user.php">Пользователь</a></li>
+        <li><a href="admin_doc.html">Администратор</a></li>
+      </ul>
+    </li>
+    <li><a href="contact.html">Контакты</a></li>
+    <li><a href="#">Пользователь</a>
+        <ul class="submenu">
+        	<li><a href="profile.php">Страница пользователя</a></li>
+        	<li><a href="setting.php">Настройки</a></li>
+        	<li><a href="exit.php">Выход</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<p class="speech">На вкладке “Сервер” доступна вкладка “Создать сервер”. </p>
+<div class="imgcontainer">
+<img src="PhotoAuth/bar_server.jpg">
+</div>
+<p class="speech">На этой вкладке для создания сервера требуется указать: id оператора, инвентарный номер сервера, имя сервера, модель сервера и описание. После заполнение всех полей нажмите на кнопку “Создать сервер”. </p>
+<div class="imgcontainer">
+<img src="PhotoAuth/new_server.jpg">
+</div>
+
+<p class="speech">Для создания нового пользователя во вкладке “Пользователь” нажмите на “Настройки”. Затем внизу нажмите на кнопку “Создать нового пользователя”.</p>
+<div class="imgcontainer">
+<img src="PhotoAuth/setting_admin.jpg">
+</div>
+<p class="speech">В открывшейся вкладке заполните имя, логин, пароль, email и нажмите на кнопку “Подтвердить изменения ”. </p>
+<div class="imgcontainer">
+<img src="PhotoAuth/create_user.jpg">
+</div>
+
+</body>
+<script language="javascript">
+	$(".five li ul").hide();
+	$(".five li:has('.submenu')").hover(
+  	function(){
+  		$(".five li ul").stop().fadeToggle(300);
+  	}
+);
+
+</script>
+</HTML>
