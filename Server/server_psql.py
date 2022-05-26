@@ -184,7 +184,7 @@ try:
             
             # Write data to db
             print("[", svid, "]: ", "Result of write_db is: ", srvdata.write_db())
-        time.sleep(1)
+        # time.sleep(1)
             
 
 except KeyboardInterrupt:

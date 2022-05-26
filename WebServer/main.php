@@ -177,7 +177,7 @@ else: {
       <a> Инвентарный номер: <?php echo $server_user["invent_num"];?> </a>
       <a>Описание сервера: <?php echo $server_user["description"];?> </a>
       <?php    
-        $result_data = pg_query($cn, "SELECT * FROM server_state WHERE id_server='$server_id'"); 
+        $result_data = pg_query($cn, "SELECT * FROM server_state WHERE id_server='$server_id' ORDER BY id_serverstate DESC"); 
         $data_res=pg_fetch_array($result_data);
       ?>
 
