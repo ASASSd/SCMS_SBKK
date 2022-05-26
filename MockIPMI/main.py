@@ -3,25 +3,35 @@ import time
 import json
 import socket
 import codecs
-idServer = 2
-serverStatus = randint(0,1)
+idServerKeys = {}
 smokeCheck = False
 
-def gen():
-    time.sleep(randint(0,1))
-    if(serverStatus == 1):
-        CpuLoad = randint(70, 80)
-        RamLoad = randint(40, 50)
-        Temp = randint(50, 60)
-        fanSpeed = randint(1000, 1200)
-    else:
+def gen(id_srv):
+    time.sleep(randint(0, 1))
+    try:
+        if(idServerKeys[id_srv] == 1):
+            CpuLoad = randint(40, 80)
+            RamLoad = randint(40, 50)
+            Temp = randint(50, 70)
+            fanSpeed = randint(1000, 1550)
+        else:
+            CpuLoad = 0
+            RamLoad = 0
+            Temp = 0
+            fanSpeed = 0
+        s = json.dumps({'CpuLoad': CpuLoad, 'RamLoad': RamLoad, 'Temp': Temp, 'fanSpeed': fanSpeed, 'idServer': id_srv, 'serverStatus': idServerKeys[id_srv], 'smokeCheck': smokeCheck}, sort_keys=True, indent=4)
+        print(s)
+        return s
+    except KeyError:
+        idServerKeys[id_srv] = 0;
         CpuLoad = 0
         RamLoad = 0
         Temp = 0
         fanSpeed = 0
-    s = json.dumps({'CpuLoad': CpuLoad, 'RamLoad': RamLoad, 'Temp': Temp, 'fanSpeed': fanSpeed, 'idServer': idServer, 'serverStatus': serverStatus, 'smokeCheck': smokeCheck}, sort_keys=True, indent=4)
-    print(s)
-    return s
+        s = json.dumps({'CpuLoad': CpuLoad, 'RamLoad': RamLoad, 'Temp': Temp, 'fanSpeed': fanSpeed, 'idServer': id_srv, 'serverStatus': idServerKeys[id_srv], 'smokeCheck': smokeCheck}, sort_keys=True, indent=4)
+        print(s)
+        return s
+
 
 serverSocket = socket.socket()
 serverSocket.bind(('', 2345))
@@ -35,14 +45,18 @@ while True:
         print('connected:', addr)
         data = conn.recv(1024)
         data = codecs.decode(data, 'utf-8')
-        if data == 'POF':
+        data = json.loads(data)
+        if data["0"] == 'POF':
             conn.send('OK'.encode())
-            serverStatus = 0
-        elif data == 'PON':
+            idServerKeys[data["1"]] = 0
+        elif data["0"] == 'PON':
             conn.send('OK'.encode())
-            serverStatus = 1
-        elif data == 'GET':
-            conn.send(gen().encode())
+            idServerKeys[data["1"]] = 1
+        elif data["0"] == 'GET':
+            conn.send(gen(data["1"]).encode())
+        elif data["0"] == 'RST':
+            idServerKeys[data["1"]] = randint(0, 1)
+            conn.send('OK'.encode())
         else:
             conn.send("ERR".encode())
         conn.close()

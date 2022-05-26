@@ -59,9 +59,8 @@ if($_COOKIE['user'] == ''):
 </nav>
 <h2 class="HeadText">Руководство по эксплуатации</h2>
 <div class="userdoc">
-  <p>Рандомный текст</p>
   <form action="master_setting.php">
-    <button type="submit">Мастер быстрой настройки</button>
+    <button type="submit">Краткая инструкция по основным действиям</button>
   </form>
   <p href="">Разделы документации: </p>
   <div class="b1">

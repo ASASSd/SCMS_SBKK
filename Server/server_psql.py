@@ -28,18 +28,6 @@ data = ""
 parsed_data = (0,)
 
 # Classes go here
-class Server(object):   # Server class
-    id = int()
-    name = str()
-    model = str()
-    desc = str()
-    __invnum = int()
-
-    def get_invnum(self):
-        return self.__invnum
-    def set_invnum(self, invnum):
-        self.__invnum = invnum
-
 class ServerState(object):  # Server telemetry record class
     server_id = int()
     server_status = int()
@@ -123,18 +111,44 @@ class Management(object):   # Server management class
                 break
         sock.close()
         return 0
+        
+    # Reboot routine
+    def reboot(self):
+        sock = socket.socket()
+        try:
+            sock.connect(("localhost", 2345))   # Connecting to telemetry server
+        except ConnectionRefusedError:
+            print("[err] Connection refused")
+            return -1
+        sock.send(json.dumps({0: "RST", 1: self.__id}).encode())   # Sending POF command
+        while True:
+            data = sock.recv(1024)  # Receiving data
+            data = codecs.decode(data, 'utf-8') # Decoding data from binary
+            if(data == "OK"):
+                print("[ok] Rebooting...\n\r")
+                break
+            else:
+                print("[err] Unknown reply: ", data)
+                break
+        sock.close()
+        return 0
 
 # Main routine goes here
 srvman = Management()
-srv = Server()
 srvdata = ServerState()
 input_data = tuple()
 try:
-    while True:
-        print("Enter command: ")
-        command = input()
-
-        if(command == "fetch"):
+    while True:        
+        cursor.execute("SELECT id_server FROM server ORDER BY id_server DESC")
+        dbcon.commit()
+        repl1 = cursor.fetchone()
+        for svid in range(1, 1+repl1[0]):
+        
+            # Set server id in objects
+            srvman.set_id(svid)
+            srvdata.server_id = svid
+            
+            # Fetch data from IPMI server:
             input_data = srvman.fetch()
             try:
                 if(input_data["error"] == -1):
@@ -149,24 +163,29 @@ try:
             srvdata.cpu_load = input_data["CpuLoad"]
             srvdata.temperature = input_data["Temp"]
             srvdata.date = str(datetime.datetime.now().date())
-            print("Result of fetch is: ", 0)
-
-        elif(command == "poweron"):
-            print("Result of poweron is: ", srvman.poweron())
-        elif(command == "poweroff"):
-            print("Result of poweroff is: ", srvman.poweroff())
-        elif(command == "exit"):
-            print("[bye] Exiting now")
-            exit(0)
-        elif(command == "fetch_db"):
-            print("Result of fetch_db is: ", srvdata.fetch_db())
-        elif(command == "write_db"):
-            print("Result of write_db is: ", srvdata.write_db())
-        elif(command == "set_id"):
-            print("Enter ID:")
-            enter_id = int(input())
-            srvman.set_id(enter_id)
-            srvdata.server_id = enter_id
+            print("[", svid, "]: ", "Result of fetch is: ", 0)
+            
+            # Command execution
+            cursor.execute("SELECT command FROM server_commands WHERE id_server=%s ORDER BY id_command DESC", str(svid))
+            dbcon.commit()
+            command_repl = cursor.fetchone()
+            try:
+                if command_repl[0] == 1:
+                    if srvdata.server_status == 0:
+                        print("Result of poweron is: ", srvman.poweron())
+                    else:
+                        print("Result of poweroff is: ", srvman.poweroff())
+                elif command_repl[0] == 2:
+                    print("Result of reboot is: ", srvman.reboot())
+            except TypeError:
+                print("[", svid, "]: ", "No commands detected!")
+            cursor.execute("DELETE FROM server_commands WHERE id_server=%s", str(svid))
+            dbcon.commit()
+            
+            # Write data to db
+            print("[", svid, "]: ", "Result of write_db is: ", srvdata.write_db())
+        time.sleep(1)
+            
 
 except KeyboardInterrupt:
     print("[bye] Exiting unexpectly")
